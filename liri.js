@@ -6,7 +6,7 @@ var spotify = require('spotify');
 
 var request = require('request');
 
-var fs = require("fs");
+var fs = require('fs');
 
 var command = process.argv[2];
 
@@ -142,6 +142,21 @@ function doIt(){
 	})
 }
 
+function logMe(){
+
+	var logfile = 'log.txt';
+
+	var dataJoin = whatIsIt.join('');
+
+	var dataLog = command + ',' + '"'+dataJoin+'"'+'\n';
+
+	fs.appendFile(logfile, dataLog, function(err){
+		if(err) throw err;
+		console.log('Logged!')
+	})
+}
+
 
 tellMe(command);
+logMe();
 
