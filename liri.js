@@ -113,7 +113,7 @@ function movieData(){
     	returned += '\n Website: ' + JSON.parse(body).Website;
     	returned += '\n RT Rated: ' + JSON.parse(body).Ratings[1].Value + '\n'
     	
-    	console.log(response)
+    	
     	console.log(returned);
     
 
@@ -132,7 +132,6 @@ function doIt(){
 
 		var commandArray = data.split(',');
 
-		console.log(commandArray);
 
 		command = commandArray[0];
 		whatIsIt = commandArray[1];
