@@ -12,6 +12,8 @@ var command = process.argv[2];
 
 var whatIsIt = process.argv.slice(3);
 
+var logArray = [command, whatIsIt];
+
 
 function tellMe(command){
 
@@ -98,7 +100,7 @@ function spotifySong(whatIsIt){
 function movieData(){
 	var returned = ' ';
 
-	if(whatIsIt.length < 1){
+	if(whatIsIt.length <= 1){
     	whatIsIt = 'Mr. Nobody'
     }
     request("http://www.omdbapi.com/?t="+whatIsIt+"&y=&plot=short&r=json", function(err, response, body){
@@ -145,7 +147,7 @@ function logMe(){
 
 	var logfile = 'log.txt';
 
-	var dataJoin = whatIsIt.join('');
+	var dataJoin = logArray[1].join('');
 
 	var dataLog = command + ',' + '"'+dataJoin+'"'+'\n';
 
